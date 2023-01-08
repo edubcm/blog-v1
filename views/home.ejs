@@ -1,4 +1,17 @@
 <%- include('partials/header.ejs'); -%>
     <h1>Home</h1>
     <p> <%= startingContent%> </p>
+    <%  posts.forEach((data) => { %>
+        <h1><%=data.title%></h1>
+        <% if(data.content.length < 100) {  %>
+            <p><%=data.content%></p>
+        <%} else { %>
+            <p>
+                <%=data.content.slice(0, 100) + ' ...'  %>
+                <a href="/posts/<%=data.title%>">Read More</a>
+            </p>
+        <%}%>
+        
+         
+    <%})%>
 <%- include('partials/footer.ejs'); -%>
